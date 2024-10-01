@@ -1,0 +1,879 @@
+/* Ethan Park */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, 
+ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, 
+blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Variables */
+:root {
+    /* Brand Colors */
+    --clr-yellow: #f6d64a;
+    --clr-teal: #55bcd5;
+    --clr-purple: #9b26b0;
+    --clr-blue: #499bd2;
+    --clr-dark-grey: #222222;
+    --clr-light-gray: #eaeaea;
+    --clr-white: #ffffff;
+    --clr-black: #000000;
+
+    /* Font Families */
+    --ff-heading: "Molle", cursive;
+    --ff-base: "Montserrat", sans-serif;
+
+    /* Font Sizes */
+    --fs-title: 3rem;
+    --fs-heading-1: 2.25rem;
+    --fs-heading-2: 1.25rem;
+    --fs-normal: 1.125rem;
+    --fs-small: 1rem;
+
+    /* Font Weights */
+    --fw-normal: 400;
+    --fw-bold: 600;
+
+    /* Layout Styles */
+    --side-padding: 32px;
+    --contact-form-gap: 24px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--ff-base);
+    font-size: var(--fs-normal);
+    font-weight: var(--fw-normal);
+}
+
+article > section {
+    background-color: var(--bg-color);
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+}
+
+/* Skip Link Styles */
+#skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+/* Screen Reader Only Styles */
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Header Styles */
+header {
+    background-image: linear-gradient(var(--clr-teal), var(--clr-white));
+    padding: 8px 0 32px;
+}
+
+header img {
+    width: 140px;
+}
+
+header h1 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-title);
+    padding: 16px var(--side-padding) 0;
+    margin-top: 16px;
+}
+
+header p {
+    padding: 0 var(--side-padding);
+    line-height: 1.6;
+    font-size: 1.25rem;
+}
+
+/* Navigation Styles */
+nav input[type="checkbox"] {
+    display: block;
+    position: absolute;
+    left: -10000px;
+    cursor: pointer;
+}
+
+nav label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 32px;
+    right: 0;
+    z-index: 2;
+    width: 192px;
+    height: 48px;
+    background-color: var(--clr-yellow);
+    text-transform: uppercase;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+nav input[type="checkbox"] ~ ul {
+    display: none;
+}
+
+nav ul {
+    position: absolute;
+    top: 48px;
+    width: 100%;
+    max-height: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--clr-teal);
+    list-style-type: none;
+}
+
+nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 96px;
+    border-bottom: 1px solid var(--clr-black);
+}
+
+nav a {
+    display: block;
+    color: var(--clr-black);
+    font-weight: var(--fw-bold);
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+nav input[type="checkbox"]:checked ~ label {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 48px;
+    color: var(--clr-white);
+    background-color: var(--clr-black);
+}
+
+nav input[type="checkbox"]:checked ~ ul {
+    display: block;
+    max-height: 512px;
+}
+
+/* Intro Section */
+#intro h2 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-heading-1);
+    padding: 0 var(--side-padding);
+    margin-bottom: 8px;
+}
+
+#intro p {
+    padding: 0 var(--side-padding);
+    margin-bottom: var(--fs-normal);
+    font-size: var(--fs-small);
+    line-height: 1.6;
+}
+
+#img-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+#intro img,
+#img picture {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Plan Your Trip Section */
+#plan {
+    --bg-color: var(--clr-yellow);
+    margin-top: 24px;
+    padding-bottom: 24px;
+}
+
+#plan h3 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-heading-1);
+    padding: 20px 0;
+}
+
+#plan > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    text-align: center;
+}
+
+#plan div > section {
+    background-color: var(--clr-teal);
+    border: 3px solid var(--clr-white);
+    border-radius: 10px;
+    padding: 32px 0;
+}
+
+#plan h4 {
+    font-weight: var(--fw-bold);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#plan img {
+    --_plan-img-size: 160px;
+
+    width: var(--_plan-img-size);
+    height: var(--_plan-img-size);
+}
+
+/* Testimonials Section */
+#testimonials {
+    margin-top: 32px;
+    padding-bottom: 16px;
+    --bg-color: var(--clr-white);
+}
+
+#testimonials h3 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-heading-1);
+    margin-bottom: 16px;
+}
+
+#testimonials > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+#testimonials div > section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#testimonials img {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#testimonials h4 {
+    font-weight: var(--fw-bold);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin: 12px 0 8px;
+}
+
+#testimonials q {
+    margin-top: 4px;
+    padding: 0 2.25rem;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+#testimonials q:before {
+    content: "\201C";
+}
+
+#testimonials q:after {
+    content: "\201D";
+}
+
+/* About Section */
+#about {
+    --bg-color: var(--clr-blue);
+    padding-top: 32px;
+    padding-bottom: 24px;
+}
+
+#about h3 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-heading-1);
+    padding-bottom: 24px;
+}
+
+#about div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+#about img {
+    --_about-img-size: 80px;
+
+    width: var(--_about-img-size);
+    height: var(--_about-img-size);
+}
+
+#about h4 {
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    line-height: 1.6;
+}
+
+#about h4,
+#about p {
+    font-size: 1.25rem;
+}
+
+/* Contact Section */
+#contact {
+    margin-top: 32px;
+}
+
+#contact h3 {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-heading-1);
+    padding-bottom: 24px;
+}
+
+#contact span.form-required {
+    font-family: var(--ff-base);
+    font-size: var(--fs-normal);
+    font-style: italic;
+}
+
+#contact label,
+#contact legend {
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+}
+
+#contact .required {
+    color: var(--clr-purple);
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"] {
+    width: 100%;
+    height: 64px;
+    margin: 2px 0 var(--contact-form-gap);
+    padding-left: 16px;
+    border: 2px solid var(--clr-purple);
+}
+
+#contact input[type="text"]::placeholder,
+#contact input[type="email"]::placeholder,
+#contact input[type="tel"]::placeholder {
+    font-family: var(--ff-base);
+    font-size: var(--fs-normal);
+    color: var(--clr-black);
+}
+
+#contact fieldset {
+    margin-bottom: var(--contact-form-gap);
+}
+
+#contact fieldset label {
+    display: flex;
+    align-items: center;
+    right: 22px;
+}
+
+#contact .radio-input {
+    display: inline-block;
+    position: relative;
+    padding: 8px 8px 8px 0;
+}
+
+#contact input[type="radio"] {
+    appearance: none;
+    background-color: var(--clr-white);
+    margin: 0;
+}
+
+#contact .radio-control {
+    --_outer-circle-diameter: 64px;
+
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    width: var(--_outer-circle-diameter);
+    height: var(--_outer-circle-diameter);
+    border: 2px solid var(--clr-purple);
+    border-radius: 50%;
+}
+
+#contact .radio-control::after {
+    --_inner-circle-diameter: 40px;
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--_inner-circle-diameter);
+    height: var(--_inner-circle-diameter);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    background-color: var(--clr-purple);
+}
+
+#contact input[type="radio"]:checked + .radio-control::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#contact .custom-select {
+    display: grid;
+    grid-template-areas: "select";
+    position: relative;
+    width: 100%;
+    height: 64px;
+    margin-bottom: var(--contact-form-gap);
+    background-color: var(--clr-white);
+    border: 2px solid var(--clr-purple);
+    font-family: var(--ff-base);
+    font-size: var(--fs-base);
+    color: var(--clr-black);
+}
+
+#contact select {
+    grid-area: select;
+    width: 100%;
+    height: 100%;
+    padding-left: 16px;
+    padding-right: 48px;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    font-family: var(--ff-base);
+    font-size: var(--fs-base);
+    color: var(--clr-black);
+    cursor: pointer;
+    line-height: 56px;
+}
+
+/* Custom arrow using ::after */
+#contact .custom-select::after {
+    --_arrow-size: 24px;
+    --_arrow-color: 2px solid var(--clr-purple);
+
+    content: "";
+    position: absolute;
+    top: 33%;
+    right: 16px;
+    transform: translateY(-50%) rotate(45deg); /* Vertically center and rotate arrow */
+    width: var(--_arrow-size); /* Arrow width */
+    height: var(--_arrow-size); /* Arrow height */
+    border-right: var(--_arrow-color); /* Arrow color */
+    border-bottom: var(--_arrow-color); /* Arrow color */
+    pointer-events: none;
+}
+
+#contact input[type="submit"] {
+    width: 100%;
+    height: 64px;
+    border-color: transparent;
+    background-color: var(--clr-purple);
+    color: var(--clr-white);
+    font-family: var(--ff-base);
+    text-transform: uppercase;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-normal);
+}
+
+/* Footer Section */
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+    padding: 8px var(--side-padding);
+    text-align: center;
+    background-color: var(--clr-light-gray);
+    font-size: var(--fs-small);
+}
+
+footer p {
+    padding: 16px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--clr-black);
+}
+
+footer a:last-child {
+    margin-bottom: 16px;
+}
+
+/* Medium Screens */
+@media screen and (min-width: 48rem) {
+    :root {
+        --side-padding: 96px;
+        --fs-heading-1: 2.5rem;
+        --fs-normal: 1.25rem;
+        --section-padding-top: 32px;
+    }
+
+    /* Header Styles */
+    header a {
+        float: left;
+    }
+
+    header h1 {
+        padding: 48px 0 8px 0;
+        font-size: 3.5rem;
+    }
+
+    header p {
+        padding-right: 160px;
+        font-size: 1.25rem;
+    }
+
+    header img {
+        width: 240px;
+        padding: 32px 0;
+    }
+
+    /* Navigation Styles */
+    nav label {
+        display: none;
+    }
+
+    nav ul {
+        display: block;
+        position: static;
+        background-color: transparent;
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+
+    nav li {
+        width: 160px;
+        height: 60px;
+        background-color: var(--clr-white);
+        border-bottom: none;
+    }
+
+    nav li.active {
+        background-color: var(--clr-yellow);
+    }
+
+    nav a {
+        font-size: var(--fs-small);
+    }
+
+    nav input[type="checkbox"] ~ ul {
+        display: flex;
+        max-height: 64px;
+        gap: 16px;
+        justify-content: center;
+    }
+
+    /* Intro Section */
+    #intro h2 {
+        font-size: 2.5rem;
+        margin-bottom: 4px;
+    }
+
+    #intro p {
+        font-size: 1.125rem;
+        margin-bottom: 8px;
+    }
+
+    #img-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 300px;
+        gap: 16px;
+        padding: 0 var(--side-padding);
+    }
+
+    #intro img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    #intro img:nth-child(1),
+    #intro img:nth-child(2) {
+        height: 100%;
+    }
+
+    #img-grid > img:nth-child(1) {
+        grid-column: 2 / 3;
+    }
+
+    #img-grid > img:nth-child(2) {
+        grid-row: 1 / 2;
+    }
+
+    #intro picture {
+        grid-column: 1 / -1;
+    }
+
+    /* Plan Section */
+    #plan h3 {
+        padding-top: var(--section-padding-top);
+    }
+
+    #plan > div {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: legacy;
+        gap: 20px;
+    }
+
+    #plan div > section {
+        width: 100%;
+    }
+
+    /* Testimonials Section */
+    #testimonials {
+        margin-top: 24px;
+    }
+
+    #testimonials > div {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    #testimonials img {
+        --_testimonials-img-size: 192px;
+        width: var(--_testimonials-img-size);
+        height: var(--_testimonials-img-size);
+    }
+
+    /* About Section */
+    #about > div {
+        grid-template-columns: repeat(4, auto);
+    }
+
+    #about img {
+        width: auto;
+        height: 104px;
+    }
+
+    /* Contact Section */
+    #contact {
+        padding-top: var(--section-padding-top);
+    }
+
+    #contact fieldset {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #contact input[type="submit"] {
+        display: block;
+        width: 50%;
+        margin-left: auto;
+    }
+
+    /* Footer Styles */
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    footer a:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Large Screens */
+@media screen and (min-width: 96rem) {
+    :root {
+        --side-padding: 160px;
+        --section-padding: 80px 160px 120px;
+    }
+
+    article {
+        padding: 80px 0;
+    }
+
+    /* Header Section */
+    header h1 {
+        padding-top: 36px;
+        padding-bottom: 8px;
+        font-size: 4rem;
+    }
+
+    /* Navigation Section */
+    nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    nav ul {
+        margin: 0;
+    }
+
+    nav li {
+        height: 48px;
+    }
+
+    /* Intro Section */
+    #intro {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        grid-template-rows: 1fr 11fr;
+        padding: 0 32px;
+    }
+
+    #intro p {
+        grid-column: 1 / 2;
+        padding-right: 2rem;
+        font-size: 1.25rem;
+    }
+
+    #img-grid {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        justify-self: start;
+        padding: 0;
+    }
+
+    #img-grid img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Plan Section */
+    #plan {
+        padding: var(--section-padding);
+    }
+
+    #plan > div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+
+    #plan img {
+        --_plan-img-size: 196px;
+    }
+
+    /* Testimonials Section */
+    #testimonials {
+        padding: var(--section-padding);
+    }
+
+    #testimonials > div {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* About Section */
+    #about {
+        padding: var(--section-padding);
+    }
+
+    #about > div {
+        justify-content: center;
+        gap: 80px;
+    }
+
+    #about img {
+        height: 160px;
+    }
+
+    /* Contact Section */
+    #contact form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    #contact select {
+        height: 48px;
+        margin-bottom: 20px;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact .custom-select {
+        height: 72px;
+        border: 3px solid var(--clr-purple);
+    }
+
+    #contact select {
+        line-height: 64px;
+    }
+
+    /* Footer */
+    footer {
+        display: grid;
+        grid-template-columns: 4.5fr 1fr 1fr;
+        padding: 16px 80px 16px;
+    }
+
+    footer p {
+        justify-self: start;
+    }
+}
